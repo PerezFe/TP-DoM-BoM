@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+body{
+    background-color: black;
+}
+
+.titulo{
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2em;
+    color: #fff;
+}
+
+.fondoAzul{
+    text-shadow: 0 0 5px #7bacff,
+    0 0 10px #7bacff,
+    0 0 20px #7bacff,
+    0 0 30px #7bacff,
+    0 0 40px #7bacff,
+    0 0 70px #7bacff,
+    0 0 90px #7bacff,
+    0 0 100px #7bacff;
+}
+
+.fondoRosa{
+    text-shadow: 0 0 5px #de7bff,
+    0 0 10px #de7bff,
+    0 0 20px #de7bff,
+    0 0 30px #de7bff,
+    0 0 40px #de7bff,
+    0 0 70px #de7bff,
+    0 0 90px #de7bff,
+    0 0 100px #de7bff;
+}
+.fondoVerde{
+    text-shadow: 0 0 5px #5adacf,
+    0 0 10px #5adacf,
+    0 0 20px #5adacf,
+    0 0 30px #5adacf,
+    0 0 40px #5adacf,
+    0 0 70px #5adacf,
+    0 0 90px #5adacf,
+    0 0 100px #5adacf;
+}
+
+.btnAzul{
+    background: #7bacff;
+}
+.btnRosa{
+    background: #de7bff;
+}
+.btnVerde{
+    background: #5adacf;
+}

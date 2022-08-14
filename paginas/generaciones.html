@@ -8,7 +8,43 @@
     <title>Generaciones</title>
 </head>
 <body>
-    <main>
+    <main class="container">
+        <h1 class="text-center">Persona</h1>
+        <hr>
+        <div>
+            <p>Complete los campos</p>
+            <div class="d-flex ">
+                <form > 
+                    <p class="m-2">Nombre</p>
+                    <input id="nombre" type="text" placeholder="Juan Pérez">
+                    <p class="m-2">Edad</p>
+                    <input id="edad" type="text" placeholder="27">
+                    <p class="m-2">DNI</p>
+                    <input id="dni" type="text" placeholder="99999999">
+                    <p class="m-2">Sexo</p>
+                    <input id="sexo" type="text" placeholder="Ingrese sexo">
+                    <p class="m-2">Peso</p>
+                    <input id="peso" type="text" placeholder="27k">
+                    <p class="m-2">Altura</p>
+                    <input id="altura" type="text" placeholder="2.5m">
+                    <p class="m-2">Año de Nacimiento</p>
+                    <input id="anioNac" type="text" placeholder="1983">
+                </form>
+                <button class="btn btn-primary my-3 " onclick="crearPersona()">Crear Persona</button>
+            </div>
+        </div>
+        <div class="container">
+            <table class="table" id="tabla">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Edad</th>
+                    <th>DNI</th>
+                    <th>Sexo</th>
+                    <th>Peso</th>
+                    <th>Altura</th>
+                </tr>
+            </table>
+        </div>
 
 
 
