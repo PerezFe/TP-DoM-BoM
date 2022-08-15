@@ -18,13 +18,10 @@ const playPause = () => {
 }
 
 const pause = () => {
-    segundosEsfera.style.animationPlayState = "paused";
     clearInterval(pararMirar);
 }
 
 const stop = () => {
-    segundosEsfera.style.transform = "rotate(-90deg) translateX(60px)";
-    segundosEsfera.style.animation = "none"
     playPauseButton.classList.remove("runing")
     tiempoCorriendo = 0;
     clearInterval(pararMirar)
@@ -32,9 +29,7 @@ const stop = () => {
 }
 
 const start = () => {
-    segundosEsfera.style.animation = "rotacion 60s linear infinite";
     let startTime = Date.now() - tiempoCorriendo;
-    segundosEsfera.style.animationPlayState = "runing"
     pararMirar = setInterval( () => {
         tiempoCorriendo = Date.now() - startTime;
         pararMirar.textContent = calculateTime(tiempoCorriendo)

@@ -15,19 +15,20 @@
     <main class="container">
         <h1 class="text-center">Temporizador</h1>
         <hr>
-        <section class="text-center">
+        <section class="text-center container">
             <div id="contenedorInputs">
                 <label for="" >Minutos</label>
-                <input type="number" placeholder="Ingrese Minutos" id="minutos">
+                <input type="number" placeholder="Ingrese Minutos" id="minutos" class="my-3">
+                <br>
                 <label for="">Segundos</label>
-                <input type="number" id="segundos" placeholder="Ingrese Segundos">
+                <input type="number" id="segundos" placeholder="Ingrese Segundos" class="my-3">
             </div>
-            <h2 id="tiempoRestante">00:00:00</h2>
+            <h2 id="tiempoRestante" class="my-2">00:00:00</h2>
             <button class="btn btn-primary" id="btnIniciar" onclick="start()"><span class="bi bi-caret-right-fill"></span></button>
             <button class="btn btn-primary" id="btnPausar" onclick="pause()"><span class="bi bi-pause-fill"></span></button>
             <button class="btn btn-primary" id="btnDetener" onclick="stop()"><span class="bi bi-stop-fill"></span></button>
         </section>
-            <a href="/index.html"><button class="btn btn-outline-primary" type="submit">Volver</button></a>
+            <a href="/index.html"><button class="btn btn-outline-primary my-5" type="submit">Volver</button></a>
         </div>
     </main>
     
