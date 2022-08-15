@@ -3,6 +3,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Practico DOM y BOM">
+    <meta name="keywords" content="DOM, BOM, JavaScript, ">
+    <meta name="author" content="Fernando Perez">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/reloj.css">
     <title>Reloj</title>
@@ -11,15 +14,25 @@
     <main class="container text-center">
         <h1 >Reloj</h1>
         <hr>
-        <section class="titulo fondoAzul">
+        <section class="titulo fondoAzul ocultarDatos">
+            <p id="fecha"></p>
+            <p id="hora"></p>
+            <p id="amPm"></p>
+        </section>
+        <section class="titulo fondoRosa ocultarDatos">
+            <p id="fecha"></p>
+            <p id="hora"></p>
+            <p id="amPm"></p>
+        </section>
+        <section class="titulo fondoVerde ocultarDatos">
             <p id="fecha"></p>
             <p id="hora"></p>
             <p id="amPm"></p>
         </section>
         <section class="mt-5">
-            <button class="btn btnAzul">Azul</button>
-            <button class="btn btnRosa">Rosa</button>
-            <button class="btn btnVerde">Verde</button>
+            <button class="btn btnAzul" id="btnAzul" onclick="cambiarAzul()">Azul</button>
+            <button class="btn btnRosa" id="btnRosa" onclick="cambiarRosa()">Rosa</button>
+            <button class="btn btnVerde" id="btnVerde" onclick="cambiarVerde()">Verde</button>
         </section>
 
 

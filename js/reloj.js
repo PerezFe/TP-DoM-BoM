@@ -25,11 +25,31 @@ if (horas < 10){
 }
 let formato = horas
 if (formato < 12){
-    formato = "PM"
-}else{
     formato = "AM"
+}else{
+    formato = "PM"
 }
 parrafoHora.innerHTML = `${horas} : ${fechaActual.getMinutes()} : ${segundos} ${formato}`
 }
 
 setInterval(obtenerHora, 1000)
+
+function cambiarRosa(){
+    let color = document.getElementById(`btnRosa`)
+    console.log(`desde cambiar rosa`)
+    console.log(`btnRosa`)
+    // if (color.getAttribute(`fondoRosa`)==""){
+    //     color.setAttribute(`class`, "ocultarDatos")
+    // }else{
+    //     color.setAttribute(`class`, "")
+    // }
+  }
+
+  function cambiarRosa(){
+    let datos = document.getElementById(`btnRosa`)
+    if (datos.getAttribute(`fondoAzul`)=="fondoAzul"){
+      datos.setAttribute(`class`, "ocultarDatos")
+    }else{
+      datos.setAttribute(`class`, "")
+    }
+  }
