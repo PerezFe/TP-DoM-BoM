@@ -51,7 +51,7 @@ const calculateTime = tiempoCorriendo => {
     let mostrar_segundos = (total_segundos % 60).toString().padStart(2, "0");
     let mostrar_minutos = total_minutos.toString().padStart(2, "0");
     
-    document.getElementById("pararReloj").innerHTML += `${mostrar_minutos}:${mostrar_segundos}`
+    document.getElementById("pararReloj").innerHTML = `${mostrar_minutos}:${mostrar_segundos}`
     
 }
 

@@ -1,5 +1,7 @@
 let baseDatos = [];
 
+// nombreIngresado, edadIngresada, dniIngresado, sexoIngresado, pesoIngresado, alturaIngresada,fechaNacIngresada 
+
 function crearPersona(){
    function Persona(nombre,edad,dni,sexo,peso,altura,fechaNac){
         
@@ -21,46 +23,16 @@ function crearPersona(){
         let fechaNacIngresada = document.getElementById("anioNac").value
         
         nuevaPersona = new Persona(nombreIngresado,edadIngresada,dniIngresado,sexoIngresado,pesoIngresado,alturaIngresada,fechaNacIngresada)
-        // get nombreIngresado(){
-        //     return this.nombre;
-        // }
-        // get mostrarEdad(){
-        //     return this.edad;
-        // }
-        // get mostrarDni(){
-        //     return this.dni;
-        // }
-        // get mostrarSexo(){
-        //     return this.sexo;
-        // }
-        // get mostrarPeso(){
-        //     return this.peso;
-        // }
-        // get mostrarAltura(){
-        //     return this.altura;
-        // }
-        // get mostrarFechaNac(){
-        //     return this.fechaNac;
-        // }
-        
-        // }
-        // esMayorDeEdad(){
-        //     if (this.edad > 18){
-        //         document.write(`Eres mayor de edad`)
-        //     }
-        // }
-      
-        
-        agregar(e);
-        // mostrarDatos();
-        // mostrarGeneracion();
+        agregar(nuevaPersona);
+    
 }
 
-function agregar(e){
-    e.preventDefault()
+function agregar(nuevaPersona){
+    // e.preventDefault()
     baseDatos.push(nuevaPersona)
     console.log(baseDatos)
-    document.getElementById("tabla").innerHTML += `<tbody><td>Nombre: ${nuevaPersona.nombre}</td><td>Edad: ${nuevaPersona.edad}</td><td>DNI: ${nuevaPersona.dni}</td><td>Sexo: ${nuevaPersona.sexo}</td><td>Peso: ${nuevaPersona.peso}</td><td>Altura: ${nuevaPersona.altura}</td><td>Fecha de Nacimiento: ${nuevaPersona.fechaNac}</td></tbody>`
+    // document.getElementById("tabla").innerHTML += `<td>Nombre: ${nuevaPersona.nombre}</td><td>Edad: ${nuevaPersona.edad}</td><td>DNI: ${nuevaPersona.dni}</td><td>Sexo: ${nuevaPersona.sexo}</td><td>Peso: ${nuevaPersona.peso}</td><td>Altura: ${nuevaPersona.altura}</td><td>Fecha de Nacimiento: ${nuevaPersona.fechaNac}</td></>`
+    createCard(nuevaPersona, baseDatos.length)
 }
 
 function mostrarDatos(){
@@ -73,27 +45,86 @@ function mostrarDatos(){
     }
 }
 
-// function mostrarGeneracion(){
-    
-//             switch (true){
-//                 case (this.fechaNacIngresada>=1994 && this.fechaNacIngresada <= 2010):
-//                     document.write("Pertences a la generacion: Z<br>Rasgo Caracteristico: Irreverencia")
-//                 break;
-//                 case (this.fechaNacIngresada>=1981 && this.fechaNacIngresada <= 1993):
-//                     document.write("Pertences a la generacion: Y Milenials<br>Rasgo Caracteristico: Frustracion")
-//                 break;
-//                 case (this.fechaNacIngresada>=1969 && this.fechaNacIngresada <= 1980):
-//                     document.write("Pertences a la generacion: X<br>Rasgo Caracteristico: Obsesión por el éxito")
-//                 break;
-//                 case (this.fechaNacIngresada>=1949 && this.fechaNacIngresada <= 1968):
-//                     document.write("Pertences a la generacion: Baby Boom<br>Rasgo Caracteristico: Ambición")
-//                 break;
-//                 case (this.fechaNacIngresada>=1930 && this.fechaNacIngresada <= 1948):
-//                     document.write("Pertences a la generacion: Silent Generation (Los niños de la posguerra)<br>Rasgo Caracteristico: Austeridad")
-//                 break;
-//                 default:
-//                     document.write("Sin generacion")
-//             }
+function calcularGeneracion(fecha){
 
-// }
+  let result = ""
+    
+                switch (true){
+                case (fecha >=1994 && fecha <= 2010):
+                    result = "Pertences a la generacion: Z<br>Rasgo Caracteristico: Irreverencia"
+                break;
+                case (fecha>=1981 && fecha <= 1993):
+                    result = "Pertences a la generacion: Y Milenials<br>Rasgo Caracteristico: Frustracion"
+                break;
+                case (fecha>=1969 && fecha <= 1980):
+                    result = "Pertences a la generacion: X<br>Rasgo Caracteristico: Obsesión por el éxito"
+                break;
+                case (fecha >=1949 && fecha <= 1968):
+                    result = "Pertences a la generacion: Baby Boom<br>Rasgo Caracteristico: Ambición"
+                break;
+                case (fecha>=1930 && fecha <= 1948):
+                    result = "Pertences a la generacion: Silent Generation (Los niños de la posguerra)<br>Rasgo Caracteristico: Austeridad"
+                break;
+                default:
+                    result = "Sin generacion"
+            }
+            return result;
+
+}
+
+function createCard(nuevaPersona, index){
+  console.log("desde create")
+    let generacion = calcularGeneracion(nuevaPersona.fechaNac)
+    let container = document.getElementById('cardContainer');
+    let card = document.createElement('div');
+    card.innerHTML = 
+    `<div class="card w-75">
+                            <div class="card-body ">
+                              <h5 class="card-title bi bi-file-earmark-person">  Persona</h5>
+                              <a href="#" id="mostrarDatos${index}" class="btn btn-primary" onclick="mostrarDatos(${index})">Mostrar Datos</a>
+                              <button class="btn btn-primary m-2" id="mostrarGeneracion${index}" onclick="mostrarGeneracion(${index})">Mostrar Generacion</button>
+                              <button class="btn btn-primary m-2" id="esMayor${index}" onclick="esMayorDeEdad(${nuevaPersona.edad})">Mayor de Edad</button>
+                            </div>
+                            <div class="ocultarDatos" id="datosPersona${index}">
+                              <ul>
+                                <li>Nombre: ${nuevaPersona.nombre}</li>
+                                <li>Edad: ${nuevaPersona.edad}</li>
+                                <li>DNI: ${nuevaPersona.dni}</li>
+                                <li>Sexo: ${nuevaPersona.sexo}</li>
+                                <li>Peso: ${nuevaPersona.peso}</li>
+                                <li>Altura: ${nuevaPersona.altura}</li>
+                                <li>Año de Nacimiento: ${nuevaPersona.fechaNac}</li>
+                              </ul>
+                            </div>
+                            <p id="generacion${index}" class="ocultarDatos">${generacion}</p>
+                        </div>`
+  container.appendChild(card)
+
+}
+
+function mostrarDatos(index){
+    let datos = document.getElementById(`datosPersona${index}`)
+    if (datos.getAttribute(`class`)==""){
+      datos.setAttribute(`class`, "ocultarDatos")
+    }else{
+      datos.setAttribute(`class`, "")
+    }
+}
+
+function mostrarGeneracion(index){
+  let datos = document.getElementById(`generacion${index}`)
+  if (datos.getAttribute(`class`)==""){
+    datos.setAttribute(`class`, "ocultarDatos")
+  }else{
+    datos.setAttribute(`class`, "")
+  }
+}
+
+function esMayorDeEdad(edad){
+      if (edad >= 18){
+          alert(`Eres mayor de edad`)
+      }else{
+        alert("Eres menor de edad")
+      }
+  }
 
